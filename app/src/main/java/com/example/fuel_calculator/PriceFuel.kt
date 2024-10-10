@@ -16,13 +16,19 @@ class PriceFuel : AppCompatActivity() {
 
         btnProximo.setOnClickListener {
 
-            val intentSegunda = Intent (this, ConsumoCarro::class.java)
+            val priceFuelStr: String = priceFuel.text.toString()
+
+            val priceFuelFlo: Float = priceFuelStr.toFloat()
+
+
+            val intentSegunda = Intent(this, ConsumoCarro::class.java)
+            intentSegunda.putExtra(KEY_CONSUMO_CARRO, priceFuelFlo)
+
             startActivity(intentSegunda)
 
-            println("tô aqui otário")
+            println("tô aqui otário2 " + priceFuelFlo)
 
         }
-
 
 
     }
