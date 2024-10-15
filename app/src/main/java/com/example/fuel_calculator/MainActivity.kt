@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         btnIniciar.setOnClickListener {
 
-            val intentPrimeira = Intent(this,PriceFuel::class.java)
+            val intentPrimeira = Intent(this, PriceFuel::class.java)
             startActivity(intentPrimeira)
 
             println("tô aqui otário")

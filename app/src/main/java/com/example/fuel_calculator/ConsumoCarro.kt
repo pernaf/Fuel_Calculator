@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 const val KEY_CONSUMO_CARRO = "ConsumoCarro.KEY_CONSUMO_CARRO"
@@ -23,16 +24,27 @@ class ConsumoCarro : AppCompatActivity() {
 
             val consumoCarroStr: String = consumoCarro.text.toString()
 
-            val consumoCarroFlo: Float = consumoCarroStr.toFloat()
+            if (consumoCarroStr == "") {
+                Snackbar
+                    .make(
+                        consumoCarro,
+                        "Preencha o campo vazio",
+                        Snackbar.LENGTH_LONG
+                    )
+                    .show()
 
-            val intentTerceira = Intent (this,Distance::class.java)
-            intentTerceira.putExtra(KEY_DISTANCIA_CONSUMO, consumoCarroFlo )
-            intentTerceira.putExtra(KEY_DISTANCIA_PRICEFUEL, priceFuel)
+            } else {
+                val consumoCarroFlo: Float = consumoCarroStr.toFloat()
 
-            startActivity(intentTerceira)
+                val intentTerceira = Intent(this, Distance::class.java)
+                intentTerceira.putExtra(KEY_DISTANCIA_CONSUMO, consumoCarroFlo)
+                intentTerceira.putExtra(KEY_DISTANCIA_PRICEFUEL, priceFuel)
 
-            println(priceFuel)
-            println(consumoCarroFlo)
+                startActivity(intentTerceira)
+
+                println(priceFuel)
+                println(consumoCarroFlo)
+            }
         }
     }
 }

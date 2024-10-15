@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 class PriceFuel : AppCompatActivity() {
@@ -18,18 +19,26 @@ class PriceFuel : AppCompatActivity() {
 
             val priceFuelStr: String = priceFuel.text.toString()
 
-            val priceFuelFlo: Float = priceFuelStr.toFloat()
+            if (priceFuelStr == "") {
+                Snackbar
+                    .make(
+                        priceFuel,
+                        "Preencha o campo vazio",
+                        Snackbar.LENGTH_LONG
+                    )
+                    .show()
+
+            } else {
+                val priceFuelFlo: Float = priceFuelStr.toFloat()
 
 
-            val intentSegunda = Intent(this, ConsumoCarro::class.java)
-            intentSegunda.putExtra(KEY_CONSUMO_CARRO, priceFuelFlo)
+                val intentSegunda = Intent(this, ConsumoCarro::class.java)
+                intentSegunda.putExtra(KEY_CONSUMO_CARRO, priceFuelFlo)
 
-            startActivity(intentSegunda)
+                startActivity(intentSegunda)
 
-            println("tô aqui otário2 " + priceFuelFlo)
-
+                println("tô aqui otário2 " + priceFuelFlo)
+            }
         }
-
-
     }
 }

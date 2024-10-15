@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 const val KEY_DISTANCIA_CONSUMO = "Distance.KEY_DISTANCIA_CONSUMO"
@@ -24,21 +25,29 @@ class Distance : AppCompatActivity() {
         btnResultado.setOnClickListener {
 
             val distanciaDestinoStr: String = distanciaDestino.text.toString()
-            val distanciaDestinoFlo: Float = distanciaDestinoStr.toFloat()
 
-            val qtdGasol = distanciaDestinoFlo / consumoCarro
-            val gastoTotal = qtdGasol * priceFuel
+            if (distanciaDestinoStr == "") {
+                Snackbar
+                    .make(
+                        distanciaDestino,
+                        "Preencha o campo vazio",
+                        Snackbar.LENGTH_LONG
+                    )
+                    .show()
 
-            val intentQuarta = Intent(this, ResultadoRevisao::class.java)
-            intentQuarta.putExtra(KEY_RESULTADO_REVISAO, gastoTotal)
+            } else {
+                val distanciaDestinoFlo: Float = distanciaDestinoStr.toFloat()
 
-            startActivity(intentQuarta)
+                val qtdGasol = distanciaDestinoFlo / consumoCarro
+                val gastoTotal = qtdGasol * priceFuel
 
-            println(gastoTotal)
+                val intentQuarta = Intent(this, ResultadoRevisao::class.java)
+                intentQuarta.putExtra(KEY_RESULTADO_REVISAO, gastoTotal)
 
+                startActivity(intentQuarta)
 
+                println(gastoTotal)
+            }
         }
-
-
     }
 }
