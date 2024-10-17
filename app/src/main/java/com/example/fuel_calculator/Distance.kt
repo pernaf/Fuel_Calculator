@@ -43,6 +43,9 @@ class Distance : AppCompatActivity() {
 
                 val intentQuarta = Intent(this, ResultadoRevisao::class.java)
                 intentQuarta.putExtra(KEY_RESULTADO_REVISAO, gastoTotal)
+                intentQuarta.putExtra(KEY_FUEL_REVISAO, priceFuel)
+                intentQuarta.putExtra(KEY_CONSUMO_REVISAO, consumoCarro)
+                intentQuarta.putExtra(KEY_DISTANCE_REVISAO, distanciaDestinoFlo)
 
                 startActivity(intentQuarta)
 
