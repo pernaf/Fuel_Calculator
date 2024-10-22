@@ -1,4 +1,4 @@
-# FUEL CALCULATOR
+# Fuel Calculator
 Esse projeto refere-se a um aplicativo android nativo desenvolvido com a linguagem de programação Kotlin, e tem como a principal objetivo saber o quanto uma pessoa irá gastar de acordo com o preço da gasolina, consumo do carro e quilometragem percorrida. 
 
 ## :camera_flash: Screenshots
