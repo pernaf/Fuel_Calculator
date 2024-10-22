@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tela3_1_consumo"
     tools:context=".ConsumoCarro">
 
     <Button
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:text="Próximo"
+        android:text="PRÓXIMO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,7 +22,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="450dp"
         android:text="Consumo do Carro"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -46,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ex: 5km/l"
+            android:textStyle="bold"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +58,8 @@
         android:layout_marginStart="120dp"
         android:layout_marginEnd="105dp"
         android:text="Passo 2 de 3"
-        android:textColor="#C71585"
+        android:textStyle="bold"
+        android:textColor= "#808080"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
